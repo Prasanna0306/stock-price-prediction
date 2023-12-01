@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select,
+    button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    select {
+      appearance: none;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      margin-top: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Stock Prediction</h1>
+    <form id="predictionForm" action="/predict" method="POST">
+      <div class="form-group">
+        <label for="company">Select Company:</label>
+        <select id="company" name="company">
+          <option value="model1">Ethereum</option>
+          <option value="model2">GOOGLE</option>
+          <option value="model3">AMAZON</option>
+          <option value="model4">APPLE</option>
+          <option value="model5">MICROSOFT</option>
+
+          <!-- Add more companies as needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="days">Number of Days:</label>
+        <input type="number" id="days" name="days" min="1" required>
+      </div>
+      <div class="form-group">
+        <label for="open">Last Day Open:</label>
+        <input type="text" id="open" name="open" required>
+      </div>
+      <div class="form-group">
+        <label for="high">Last Day High:</label>
+        <input type="text" id="high" name="high" required>
+      </div>
+      <div class="form-group">
+        <label for="low">Last Day Low:</label>
+        <input type="text" id="low" name="low" required>
+      </div>
+      <div class="form-group">
+        <label for="close">Last Day Close:</label>
+        <input type="text" id="close" name="close" required>
+      </div>
+      <button type="submit">Predict</button>
+    </form>
+    <div class="output">
+      <textarea id="prediction" readonly>{{ prediction }}</textarea>
+    </div>
+  </div>
+  
+  <!-- Your JavaScript code here -->
+</body>
+</html>
